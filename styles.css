@@ -70,9 +70,13 @@ body {
 /* Create Doc Button */
 .create-doc {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
 }
 
-.create-doc button {
+.create-doc .filled-btn {
   width: 100%;
   padding: 8px 12px;
   background-color: #0070f3;
@@ -81,10 +85,35 @@ body {
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-.create-doc button:hover {
+.create-doc .filled-btn:hover {
   background-color: #005bb5;
+}
+
+.border-btn {
+  border: #0000004f solid 1px;
+  /* width: fit-content; */
+  padding: 0.5rem;
+  height: 100%;
+  border-radius: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.create-doc .border-btn:hover {
+  background-color: #c3c3c375;
+  border: #000000ab solid 1px;
+}
+
+.border-btn img {
+  width: 1.2rem;
 }
 
 /* Menu Section */
