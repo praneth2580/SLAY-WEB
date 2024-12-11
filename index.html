@@ -1,38 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <script src="indexeddb.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Sidebar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="indexeddb.js"></script>
 </head>
-
 <body>
-    <div class="sidenav">
-        <div class="company-name">Mole</div>
-        <ul class="nav-items">
-          <li><a href="/">Home</a></li>
-          <li><a href="/lists.html">Lists</a></li>
-          <li><a href="/tag.html">Tags</a></li>
-          <!-- <li><a href="#">Contact</a></li> -->
-        </ul>
+  <div class="sidebar">
+    <!-- Company Logo -->
+    <div class="sidebar-header">
+      <div class="logo">S</div>
+      <div class="company-name">Stripe Inc.</div>
     </div>
-    <div class="sidebar-subtractor">
 
+    <!-- Create Doc Button -->
+    <div class="create-doc">
+      <button>+ Create Doc</button>
     </div>
-    <div class="main">
-        <div id="editor">
 
+    <!-- Menu Section -->
+    <div class="menu-section">
+      <h3>Menu</h3>
+      <ul class="menu-list">
+        <li><a href="#"><img class="hub-image" src="./images/hub.svg">Hub</a></li>
+        <li><a href="#"><img src="./images/calendar.svg">Calendar</a></li>
+        <li><a href="#"><img src="./images/projects.svg">Projects</a></li>
+        <li><a href="#"><img src="./images/todo.svg">Todo</a></li>
+        <li><a href="#"><img src="./images/tales.svg">Tales</a></li>
+        <li><a href="#"><img src="./images/activity.svg">Activity</a></li>
+        <li><a href="#"><img src="./images/recent.svg">Recents</a></li>
+      </ul>
+    </div>
+
+    <!-- Company Space -->
+    <div class="space-section">
+        <div class="space-header">
+            <h3>Projects</h3>
+            <img src="./images/add-projects.svg">
         </div>
+      <ul class="space-list">
+        <li><a href="#">Problem</a></li>
+        <li><a href="#">Problem 2</a></li>
+        <li><a href="#">Call Billy Snyder</a></li>
+        <li><a href="#">Optional secondary</a></li>
+        <li><a href="#">Streamlined</a></li>
+        <li><a href="#">Ergonomic clear</a></li>
+      </ul>
     </div>
-    <script src="index.js"></script>
-</body>
 
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-item">Trash</div>
+      <div class="footer-user">
+        <img src="https://via.placeholder.com/32" alt="User Avatar">
+        <span>Damien Green</span>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
