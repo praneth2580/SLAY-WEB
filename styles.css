@@ -32,7 +32,7 @@ body {
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #d1d5db; /* Thumb color */
+  background-color: #d1d5db67; /* Thumb color */
   border-radius: 5px; /* Rounded edges */
 }
 

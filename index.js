@@ -22,5 +22,15 @@ $(document).ready(() => {
     const element = elements[i];
     $(element).html(project_marker);          
   }
+  run()
 })
+
+const run = () => {
+  const db = new IndexedDB();
+  db.onSuccess = async () => {
+    const list = new Lists(db);
+    const data = await list.get();
+    console.log(data)
+  }
+}
 
