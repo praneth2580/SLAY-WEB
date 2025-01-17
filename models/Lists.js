@@ -1,45 +1,43 @@
 class Lists {
-    
+
     store = 'list';
     schema = {
-      name: {
-        unique: true,
-      },
-      color: {},
-      order: {
-        unique: true,
-      },
-      pin: {},
+        name: {
+            unique: true,
+        },
+        color: {},
+        order: {
+            unique: true,
+        },
+        pin: {},
     };
-    db = null;
-
-    constructor(db) {
-        this.db = db;
-        this.db.schemaLoader(this.store, this.schema);
+    index = {
+        name: 'nameIndex',
+        column: 'name'
     }
 
-    async get({where = null, orderBy = null} = {}) {
-        var resolve,reject;
-        const promise = new Promise((_resolve, _reject) => {
-            resolve = _resolve;
-            reject = _reject;
-        })
-        try {
-            var results;
-            if (!where && !orderBy) { 
-                results = await this.db.read(this.store, null);;
-                resolve(results)
-                return promise;
-            }
+    constructor(dbHelper) {
+        this.dbHelper = dbHelper;
+    }
 
-            if (where) {
+    async add(list) {
+        return this.dbHelper.add(this.store, list);
+    }
 
-            }
+    async getById(id) {
+        return this.dbHelper.get(this.store, id);
+    }
 
-        } catch (error) {
-            reject(error);
-        }
-        return promise;
+    async getAll() {
+        return this.dbHelper.getAll(this.store);
+    }
+
+    async update(list) {
+        return this.dbHelper.put(this.store, list);
+    }
+
+    async delete(id) {
+        return this.dbHelper.delete(this.store, id);
     }
 
 }
