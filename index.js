@@ -1,6 +1,6 @@
-const STORES = {};
+let listStore = null;
 
-$(document).ready(() => {
+$(document).ready(async () => {
   // const quill = new Quill("#editor", {
   //   modules: {
   //     toolbar: "#toolbar",
@@ -24,34 +24,39 @@ $(document).ready(() => {
     $(element).html(project_marker);
   }
   // run()
-  this.DB = setupDatabase()
-})
+  setupDatabase()
 
-const run = () => {
-  const db = new IndexedDB();
-  db.onSuccess = async () => {
-    const list = new Lists(db);
-    const data = await list.get();
-    console.log(data)
-  }
-}
+})
 
 
 async function setupDatabase() {
   const dbHelper = new IndexedDBHelper("NotesAppDB", 1);
 
+  listStore = new Lists(dbHelper)
+
   await dbHelper.openDatabase((db) => {
     for (let model in MODELS) {
       console.info(`Creating Model ${model}`);
-      STORES[model] = new MODELS[model](dbHelper);
-      console.log(STORES.index)
+      const temp_store = new MODELS[model](dbHelper);
+      console.log(STORES)
       if (!db.objectStoreNames.contains(model)) {
         const notesStore = db.createObjectStore(model, { keyPath: "id", autoIncrement: true });
-        notesStore.createIndex(STORES[model].index.name, STORES[model].index.column, { unique: false });
+        notesStore.createIndex(temp_store.index.name, temp_store.index.column, { unique: false });
       }
     }
   });
 
   return dbHelper;
+}
+
+
+const submitList = async (e) => {
+  // e.preventDefault();
+  const list_name = $('#list-name').val();
+  const list_color = $('#list-color').val();
+  const data = listStore.format(list_name, list_color);
+  const result = await listStore.add(data)
+  MODAL.hide('#list-add-model')
+
 }
 

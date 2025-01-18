@@ -20,6 +20,15 @@ class Lists {
         this.dbHelper = dbHelper;
     }
 
+    format(name, color, pin = false, order = 9999) {
+        return {
+            name: name,
+            color: color,
+            order: order,
+            pin: pin
+        }
+    }
+
     async add(list) {
         return this.dbHelper.add(this.store, list);
     }
